@@ -1,0 +1,37 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+
+<!--<a th:href="@{https://www.google.com}">google</a>-->
+<h1>Hello <span th:text="${imie}"></span></h1>
+
+<!--if-->
+<h2 th:if="${pokaz}">Powinienem pokazac</h2>
+
+<!--else, unless=jeżeli nie-->
+<h2 th:unless="${pokaz}">nie powinienem pokazac</h2>
+
+<!--for each-->
+<div th:each="kolor : ${kolory}">
+    <span th:text="${kolor}"></span>
+</div>
+
+<!--switch-->
+<div th:each="kolor : ${kolory}">
+   <div th:switch="${kolor}">
+       <span th:case="${'red'}" th:style="${'color : red'}" th:text="${kolor}"></span>
+       <span th:case="${'yellow'}" th:style="${'color : yellow'}" th:text="${kolor}"></span>
+       <span th:case="${'green'}" th:style="${'color : green'}" th:text="${kolor}"></span>
+   </div>
+</div>
+
+<!--przeróbka daty, dzięku utliom, patrz:#-->
+<span th:text="${#dates.format(teraz,'MM-dd-yyyy, hh:mm:ss')}"></span>
+
+
+</body>
+</html>
